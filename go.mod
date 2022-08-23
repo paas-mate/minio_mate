@@ -1,6 +1,6 @@
 module minio_mate
 
-go 1.18
+go 1.19
 
 require (
 	github.com/paas-mate/gutil v0.0.1
