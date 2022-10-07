@@ -15,7 +15,5 @@ do
   DATA_CMD="$DATA_CMD $AUX"
 done
 
-
 mkdir -p $MINIO_HOME/logs
 nohup minio server $DATA_CMD >>$MINIO_HOME/logs/minio.stdout.log 2>>$MINIO_HOME/logs/minio.stderr.log &
-

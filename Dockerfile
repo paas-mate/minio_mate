@@ -12,7 +12,6 @@ FROM ttbb/minio:nake
 ENV MINIO_ROOT_USER=admin
 ENV MINIO_ROOT_PASSWORD=password
 ENV MINIO_PROMETHEUS_AUTH_TYPE=public
-ENV MINIO_STORAGE_CLASS_RRS=EC:2
 
 COPY docker-build /opt/sh/minio/mate
 
