@@ -1,4 +1,9 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "$0"  )" && pwd  )"
 mkdir -p $MINIO_HOME/logs
-nohup $MINIO_HOME/mate/minio_mate >>$MINIO_HOME/logs/minio_mate.log 2>>$MINIO_HOME/logs/minio_mate_error.log
+if [ $CLUSTER_ENABLE == "true" ]; then
+    bash -x $DIR/start-minio-cluster.sh
+else
+    bash -x $DIR/start-minio-standalone.sh
+fi
