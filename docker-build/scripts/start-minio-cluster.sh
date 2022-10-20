@@ -15,6 +15,8 @@ do
   DATA_CMD="$DATA_CMD $AUX"
 done
 
+export locationIp=`ip addr | grep inet | grep eth0 | awk '{split($2, arr, "/"); print arr[1]}'`
+sed -i 's/localhost/'"${locationIp}"'/g' /root/.s3cfg
 mkdir -p $MINIO_HOME/logs
 if [ -z "$MINIO_DELVE_DEBUG" ] || [ $MINIO_DELVE_DEBUG == "false" ]; then
   if [ -n "$POD_IP" ]; then
