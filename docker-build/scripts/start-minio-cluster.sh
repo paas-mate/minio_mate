@@ -19,5 +19,5 @@ mkdir -p $MINIO_HOME/logs
 if [[ -z "$MINIO_DELVE_DEBUG" ]]; then
   nohup minio server $DATA_CMD >>$MINIO_HOME/logs/minio.stdout.log 2>>$MINIO_HOME/logs/minio.stderr.log &
 else
-  nohup dlv --listen=:2345 --headless=true --api-version=2 exec nohup minio server $DATA_CMD >>$MINIO_HOME/logs/minio.stdout.log 2>>$MINIO_HOME/logs/minio.stderr.log &
+  nohup dlv --listen=:2345 --headless=true --api-version=2 exec minio server $DATA_CMD >>$MINIO_HOME/logs/minio.stdout.log 2>>$MINIO_HOME/logs/minio.stderr.log &
 fi
